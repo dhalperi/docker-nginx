@@ -114,6 +114,8 @@ RUN set -x \
     && apk add --no-cache tzdata \
 # Bring in curl and ca-certificates to make registering on DNS SD easier
     && apk add --no-cache curl ca-certificates \
+# Manage up libcrypto1.1 and libssl1.1
+    && apk add --no-cache --upgrade libcrypto1.1 libssl1.1 \
 # forward request and error logs to docker log collector
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log \
